@@ -21,7 +21,7 @@ const todos = ref<Todo[]>([
   },
   {
     id: 2,
-    content: 'ct2'
+    content: 'ທົດສອບ'
   },
   {
     id: 3,

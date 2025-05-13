@@ -1,1 +1,14 @@
 // app global css in SCSS form
+@import "tailwindcss";
+
+@font-face {
+    font-family: 'Noto Sans Laos';
+    src: url('/src/assets/fonts/NotoSansLao.ttf');
+    font-size: medium;
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    font-family: 'Noto Sans Laos', sans-serif;
+}

@@ -1,5 +1,5 @@
-// app global css in SCSS form
-@import "tailwindcss";
+/* app global css in SCSS form */
+@import "tailwindcss" prefix(tw);
 
 @font-face {
     font-family: 'Noto Sans Laos';

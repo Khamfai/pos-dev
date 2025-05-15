@@ -1,43 +1,69 @@
 <template>
-  <q-page class="row items-center justify-evenly">
-    <example-component
-      title="Example component"
-      active
-      :todos="todos"
-      :meta="meta"
-    ></example-component>
+  <q-page class="q-pa-md">
+    <div class="tw:grid tw:grid-cols-2 tw:gap-4 tw:md:grid-cols-3 tw:lg:grid-cols-4">
+      <div class="tw:rounded" style="height: 100px; background-color: rgba(255, 255, 255, 0.3)">
+        Column-1
+      </div>
+      <div class="tw:rounded" style="height: 100px; background-color: rgba(255, 255, 255, 0.3)">
+        Column-2
+      </div>
+      <div class="tw:rounded" style="height: 100px; background-color: rgba(255, 255, 255, 0.3)">
+        Column-3
+      </div>
+      <div class="tw:rounded" style="height: 100px; background-color: rgba(255, 255, 255, 0.3)">
+        Column-4
+      </div>
+    </div>
+    <section></section>
   </q-page>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
-import type { Todo, Meta } from 'components/models';
-import ExampleComponent from 'components/ExampleComponent.vue';
+// import { ref } from 'vue';
 
-const todos = ref<Todo[]>([
-  {
-    id: 1,
-    content: 'ct1'
-  },
-  {
-    id: 2,
-    content: 'ທົດສອບ'
-  },
-  {
-    id: 3,
-    content: 'ct3'
-  },
-  {
-    id: 4,
-    content: 'ct4'
-  },
-  {
-    id: 5,
-    content: 'ct5'
-  }
-]);
+// const data = ref({
+//   series: [
+//     {
+//       name: 'series1',
+//       data: [31, 40, 28, 51, 42, 109, 100],
+//     },
+//     {
+//       name: 'series2',
+//       data: [11, 32, 45, 32, 34, 52, 41],
+//     },
+//   ],
+//   chartOptions: {
+//     chart: {
+//       height: 350,
+//       type: 'area',
+//     },
+//     grid: {
+//       show: false,
+//     },
 
-const meta = ref<Meta>({
-  totalCount: 1200
-});
+//     dataLabels: {
+//       enabled: false,
+//     },
+//     stroke: {
+//       curve: 'smooth',
+//     },
+//     xaxis: {
+//       type: 'datetime',
+//       categories: [
+//         '2018-09-19T00:00:00.000Z',
+//         '2018-09-19T01:30:00.000Z',
+//         '2018-09-19T02:30:00.000Z',
+//         '2018-09-19T03:30:00.000Z',
+//         '2018-09-19T04:30:00.000Z',
+//         '2018-09-19T05:30:00.000Z',
+//         '2018-09-19T06:30:00.000Z',
+//       ],
+//     },
+//     tooltip: {
+//       x: {
+//         format: 'dd/MM/yy HH:mm',
+//       },
+//     },
+//   },
+// });
 </script>

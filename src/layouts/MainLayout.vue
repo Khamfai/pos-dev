@@ -4,29 +4,44 @@
       <q-toolbar :class="theme" class="tw:lg:rounded-lg">
         <q-btn flat dense round icon="menu" aria-label="Menu" @click="toggleLeftDrawer" />
 
-        <q-toolbar-title> Quasar App </q-toolbar-title>
+        <q-toolbar-title> POS System </q-toolbar-title>
         <q-btn flat dense rounded class="material-icons" :icon="iconTheme" @click="setTheme()" />
         <div class="tw:px-1"></div>
         <q-btn flat dense rounded class="material-icons" icon="translate">
-          <q-menu style="border-radius: 6px">
+          <q-menu style="border-radius: 6px; width: 250px">
             <q-list>
               <q-item clickable v-close-popup>
                 <q-item-section avatar>
-                  <q-avatar icon="translate" color="secondary" text-color="white" />
+                  <q-avatar icon="translate" size="35px" color="secondary" text-color="white" />
                 </q-item-section>
                 <q-item-section>
-                  <q-item-label>Laos</q-item-label>
-                  <q-item-label caption>February 22, 2016</q-item-label>
+                  <q-item-label>Laos (ລາວ)</q-item-label>
+                </q-item-section>
+                <q-item-section>
+                  <q-checkbox
+                    v-model="checked"
+                    checked-icon="star"
+                    unchecked-icon="star_border"
+                    indeterminate-icon="help"
+                  />
                 </q-item-section>
               </q-item>
 
               <q-item clickable v-close-popup>
                 <q-item-section avatar>
-                  <q-avatar icon="translate" color="secondary" text-color="white" />
+                  <q-avatar icon="translate" size="35px" color="secondary" text-color="white" />
+                </q-item-section>
+                <q-item-section>
+                  <q-item-label>Thai (ไทย)</q-item-label>
+                </q-item-section>
+              </q-item>
+
+              <q-item clickable v-close-popup>
+                <q-item-section avatar>
+                  <q-avatar icon="translate" size="35px" color="secondary" text-color="white" />
                 </q-item-section>
                 <q-item-section>
                   <q-item-label>English</q-item-label>
-                  <q-item-label caption>February 22, 2016</q-item-label>
                 </q-item-section>
               </q-item>
             </q-list>
@@ -46,6 +61,20 @@
 
         <EssentialLink v-for="link in linksList" :key="link.title" v-bind="link" />
       </q-list>
+
+      <div class="absolute text-center" style="bottom: 20px; width: 100%">
+        <q-btn
+          flat
+          :round="miniState"
+          :rounded="!miniState"
+          color="red"
+          class="material-icons"
+          icon="power_settings_new"
+          style="background-color: #aecafa; font-weight: bold"
+          :label="!miniState ? 'Sign out' : undefined"
+        />
+      </div>
+
       <div
         class="q-mini-drawer-hide absolute tw:rounded-full tw:p-2"
         :class="isDark ? 'tw:bg-[#2e4053]' : 'bg-white'"
@@ -73,9 +102,12 @@ import { ref, computed } from 'vue';
 import EssentialLink, { type EssentialLinkProps } from 'components/EssentialLink.vue';
 import { onMounted } from 'vue';
 import { Dark } from 'quasar';
+import { useI18n } from 'vue-i18n';
 
+const { t } = useI18n();
 const miniState = ref(false);
 const isDark = ref(false);
+const checked = ref();
 const theme = computed(() =>
   Dark.isActive ? 'tw:bg-[#34495e] text-white' : 'tw:bg-[#ebedef] text-black',
 );
@@ -83,47 +115,53 @@ const iconTheme = computed(() => (Dark.isActive ? 'wb_sunny' : 'nights_stay'));
 const leftDrawerOpen = ref(false);
 const linksList: EssentialLinkProps[] = [
   {
-    title: 'Docs',
+    title: t('dashbord'),
     caption: 'quasar.dev',
-    icon: 'school',
-    link: 'https://quasar.dev',
+    icon: 'home',
+    link: '/',
   },
   {
-    title: 'Github',
-    caption: 'github.com/quasarframework',
-    icon: 'code',
-    link: 'https://github.com/quasarframework',
+    title: t('manage_plan'),
+    caption: 'quasar.dev',
+    icon: 'token',
+    link: '/admin/package',
   },
+  // {
+  //   title: t('manage_language'),
+  //   caption: 'chat.quasar.dev',
+  //   icon: 'translate',
+  //   link: '/admin/language',
+  // },
   {
-    title: 'Discord Chat Channel',
-    caption: 'chat.quasar.dev',
-    icon: 'chat',
-    link: 'https://chat.quasar.dev',
-  },
-  {
-    title: 'Forum',
+    title: t('manage_payment'),
     caption: 'forum.quasar.dev',
-    icon: 'record_voice_over',
+    icon: 'redeem',
     link: 'https://forum.quasar.dev',
   },
   {
-    title: 'Twitter',
+    title: t('manage_permission'),
+    caption: 'github.com/quasarframework',
+    icon: 'folder_shared',
+    link: 'https://github.com/quasarframework',
+  },
+  {
+    title: t('manage_shop'),
     caption: '@quasarframework',
-    icon: 'rss_feed',
+    icon: 'storefront',
     link: 'https://twitter.quasar.dev',
   },
-  {
-    title: 'Facebook',
-    caption: '@QuasarFramework',
-    icon: 'public',
-    link: 'https://facebook.quasar.dev',
-  },
-  {
-    title: 'Quasar Awesome',
-    caption: 'Community Quasar projects',
-    icon: 'favorite',
-    link: 'https://awesome.quasar.dev',
-  },
+  // {
+  //   title: 'Facebook',
+  //   caption: '@QuasarFramework',
+  //   icon: 'public',
+  //   link: 'https://facebook.quasar.dev',
+  // },
+  // {
+  //   title: 'Quasar Awesome',
+  //   caption: 'Community Quasar projects',
+  //   icon: 'favorite',
+  //   link: 'https://awesome.quasar.dev',
+  // },
 ];
 
 onMounted(() => {

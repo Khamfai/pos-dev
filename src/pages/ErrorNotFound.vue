@@ -1,14 +1,11 @@
 <template>
-  <div class="fullscreen bg-blue text-white text-center q-pa-md flex flex-center">
+  <div class="fullscreen bg-white text-blue text-center q-pa-md flex flex-center">
     <div>
-      <div style="font-size: 30vh">
-        404
+      <div class="content-center items-center justify-center" style="position: relative;">
+        <q-img src="https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif" />
+        <div style="font-size: 10vh; position: absolute; top: 0px;  ">404</div>
       </div>
-
-      <div class="text-h2" style="opacity:.4">
-        Oops. Nothing here...
-      </div>
-
+      <div class="text-h3" style="opacity: 0.4">Oops. Nothing here...</div>
       <q-btn
         class="q-mt-xl"
         color="white"

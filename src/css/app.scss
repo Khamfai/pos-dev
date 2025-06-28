@@ -9,6 +9,14 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Righteous';
+    src: url('/src/assets/fonts/Righteous.ttf');
+    font-size: medium;
+    font-weight: normal;
+    font-style: normal;
+}
+
 * {
-    font-family: 'Noto Sans Laos', sans-serif;
+    font-family: 'Noto Sans Laos', 'Righteous', sans-serif;
 }

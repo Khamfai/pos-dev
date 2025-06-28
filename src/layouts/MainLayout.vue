@@ -5,14 +5,46 @@
         <q-btn flat dense round icon="menu" aria-label="Menu" @click="toggleLeftDrawer" />
 
         <q-toolbar-title> POS System </q-toolbar-title>
-        <q-btn flat dense rounded class="material-icons" :icon="iconTheme" @click="setTheme()" />
+        <q-btn flat dense rounded class="material-icons" icon="account_circle">
+          <q-menu>
+            <q-list>
+              <q-item clickable v-close-popup>
+                <q-item-section avatar>
+                  <q-avatar
+                    icon="logout"
+                    size="35px"
+                    color="secondary"
+                    text-color="white"
+                  />
+                </q-item-section>
+                <q-item-section>
+                  <q-item-label>Logout</q-item-label>
+                </q-item-section>
+              </q-item>
+            </q-list>
+          </q-menu>
+        </q-btn>
+        <div class="tw:px-1"></div>
+        <q-btn
+          flat
+          dense
+          rounded
+          class="material-icons"
+          :icon="iconTheme"
+          @click="setTheme()"
+        />
         <div class="tw:px-1"></div>
         <q-btn flat dense rounded class="material-icons" icon="translate">
           <q-menu style="border-radius: 6px; width: 250px">
             <q-list>
               <q-item clickable v-close-popup>
                 <q-item-section avatar>
-                  <q-avatar icon="translate" size="35px" color="secondary" text-color="white" />
+                  <q-avatar
+                    icon="translate"
+                    size="35px"
+                    color="secondary"
+                    text-color="white"
+                  />
                 </q-item-section>
                 <q-item-section>
                   <q-item-label>Laos (ລາວ)</q-item-label>
@@ -29,7 +61,12 @@
 
               <q-item clickable v-close-popup>
                 <q-item-section avatar>
-                  <q-avatar icon="translate" size="35px" color="secondary" text-color="white" />
+                  <q-avatar
+                    icon="translate"
+                    size="35px"
+                    color="secondary"
+                    text-color="white"
+                  />
                 </q-item-section>
                 <q-item-section>
                   <q-item-label>Thai (ไทย)</q-item-label>
@@ -38,7 +75,12 @@
 
               <q-item clickable v-close-popup>
                 <q-item-section avatar>
-                  <q-avatar icon="translate" size="35px" color="secondary" text-color="white" />
+                  <q-avatar
+                    icon="translate"
+                    size="35px"
+                    color="secondary"
+                    text-color="white"
+                  />
                 </q-item-section>
                 <q-item-section>
                   <q-item-label>English</q-item-label>

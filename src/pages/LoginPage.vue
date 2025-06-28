@@ -24,7 +24,7 @@
             <q-icon size="80px" name="mdi-account-circle-outline" />
             <h4 style="font-weight: bold">Login</h4>
           </div>
-          <q-form class="login-form tw:grid tw:grid-rows-2 tw:gap-10">
+          <q-form class="login-form tw:grid tw:grid-rows-2 tw:gap-8">
             <q-input
               id="username"
               rounded
@@ -72,7 +72,11 @@
                 @click="onLogin"
               />
             </div>
-            <hr />
+            <div class="tw:grid tw:grid-cols-3 tw:items-center">
+              <hr />
+              <div class="tw:text-center">Or login with</div>
+              <hr />
+            </div>
             <div class="tw:grid tw:grid-cols-2 tw:gap-6">
               <q-btn
                 style="width: 100%"
@@ -89,6 +93,16 @@
                 label="Facebook"
                 @click="onLogin"
                 icon="mdi-facebook"
+              />
+            </div>
+            <div class="register text-center">
+              <hr />
+              <q-btn
+                label="Register"
+                dense
+                flat
+                icon="mdi-account-plus"
+                @click="onRegister"
               />
             </div>
           </q-form>
@@ -155,7 +169,7 @@ const onLogin = async () => {
       message: "Login successful!",
     });
 
-    router.push("/");
+    router.push("/admin");
   } catch (error) {
     Notify.create({
       type: "negative",
@@ -214,6 +228,10 @@ const onRegister = () => {
   box-shadow: 0 0 6px rgba(255, 255, 255, 0.7);
 }
 
+.register {
+  display: none;
+}
+
 @media screen and (max-width: 630px) {
   .content {
     width: 100%;
@@ -223,6 +241,10 @@ const onRegister = () => {
 
   .login-left {
     display: none;
+  }
+
+  .register {
+    display: block;
   }
 }
 </style>

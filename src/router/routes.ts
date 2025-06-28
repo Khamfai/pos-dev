@@ -38,6 +38,17 @@ const routes: RouteRecordRaw[] = [
     ],
   },
 
+  {
+    path: '/shop',
+    component: () => import('layouts/ShopLayout.vue'),
+    children: [
+      {
+        path: '', component: () => import('src/pages/shop/IndexPage.vue'),
+        meta: { requiresAuth: true, roles: ['admin', 'owner', 'seller'] }
+      },
+    ],
+  },
+
   // Always leave this as last one
   {
     path: '/:catchAll(.*)*',
